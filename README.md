@@ -206,7 +206,7 @@ You can customize the SDK behavior through the `WTInitialConfig` parameters:
 - `startTrackerAutomatically`: Whether to start tracking automatically.
 
 ## Example Project
-An example project demonstrating the WiseTrack SDK integration is available at [GitHub Repository URL](#https://github.com/wisetrack-io/ios-sdk/tree/main/Example). Clone the repository and follow the setup instructions to see the SDK in action.
+An Example project demonstrating the WiseTrack SDK integration is available at [GitHub Repository URL](https://github.com/wisetrack-io/ios-sdk/tree/main/Example). Clone the repository and follow the setup instructions to see the SDK in action.
 
 ## Troubleshooting
 - **SDK not initializing**: Ensure the `appToken` is correct and the network is reachable.
