@@ -2,3 +2,6 @@
 /Example/Pods
 /Example/Tests
 /Example/Podfile.lock
+
+.DS_Store
+Lib/.DS_Store
