@@ -12,6 +12,9 @@ let package = Package(
             targets: ["WiseTrackLib"]
         )
     ],
+    dependencies: [
+        .package(url: "https://github.com/getsentry/sentry-cocoa.git", from: "8.50.2")
+    ],
     targets: [
         .binaryTarget(
             name: "WiseTrackLib",
