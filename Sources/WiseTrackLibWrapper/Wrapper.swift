@@ -1,7 +1,8 @@
 import Sentry
 
-public struct WiseTrackLibWrapperFile {
-	public func wrapper(){
-        _ = SentrySDK.self
+public class DummySentryLinker {
+    public static func preload() {
+        _ = SentrySDK.start
+        _ = SentryClient.self
     }
 }
