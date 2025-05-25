@@ -8,28 +8,37 @@
 
 import UIKit
 import WiseTrackLib
-import Sentry
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        
+//        WiseTrack.shared.enableTestMode()
+        
         // add WT.StoreName key to Info.plist if you want seprate your publish
+        
+        if isTestRunning {
+            WiseTrack.shared.enableTestMode()
+        }
 
         // set log level
         WiseTrack.shared.setLogLevel(.debug)
         
         //initial
+        ResourceWrapper.setSdkEnvironment(env: "stage")
         let config = WTInitialConfig(
-            appToken: "5oj3KkQpPDP3",
+            appToken: "rMN5ZCwpOzY7",
             storeName: .appstore,
-            enviroment: .sandbox,
+//            storeName: .custom("asghar_store"),
+            environment: .sandbox,
             logLevel: .debug,
-            trackingWattingTime: 5,
+            trackingWaitingTime: 5,
             startTrackerAutomatically: true,
             customDeviceId: "custom-device-id",
+//                defaultTracker: "default",
             appSecret: "app-secret",
             secretId: "secret-id"
         )
@@ -38,6 +47,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.rootViewController = LoginViewController()
 //        window!.makeKeyAndVisible()
+        
+//        WiseTrack.shared.setupHeatMap(window: &window!)
+        
+        WiseTrack.shared.setupHeatMapTouchs()
+        
+        
+//        SentrySDK.start { options in
+//              options.dsn = "https://ce0a813b03eea839ff5b3df3517b8123@o1311679.ingest.us.sentry.io/4509185260257280"
+//              options.debug = false // Enabling debug when first installing is always helpful
+//              options.sendDefaultPii = true
+//          }
         
         return true
     }
@@ -67,5 +87,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         get {
             return ProcessInfo.processInfo.environment["XCTestSessionIdentifier"] != nil
         }
+    }
+}
+
+
+
+
+
+extension AppDelegate {
+    
+    private func handleDeepLink(launchOptions: [AnyHashable : Any]?) -> URL?{
+        guard let options = launchOptions else {
+            return nil
+        }
+        
+        // Custom URL
+        if let url = options[UIApplication.LaunchOptionsKey.url] as? URL {
+            return url
+        }
+        
+        // Universal link
+        else if let activityDictionary = options[UIApplication.LaunchOptionsKey.userActivityDictionary] as? [AnyHashable: Any] {
+            for key in activityDictionary.keys {
+                if let userActivity = activityDictionary[key] as? NSUserActivity {
+                    if let url = userActivity.webpageURL {
+                        return url
+                    }
+                }
+            }
+        }
+        
+        return nil
     }
 }

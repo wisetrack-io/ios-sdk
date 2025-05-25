@@ -81,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             appToken: "your-app-token",
             storeName: .appstore,
             environment: .production, // Use .sandbox for testing
-            trackingWattingTime: 5,
+            trackingWaitingTime: 5,
             startTrackerAutomatically: true
         ))
         return true
@@ -105,7 +105,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             appToken: "your-app-token",
             storeName: .appstore,
             environment: .production,
-            trackingWattingTime: 5,
+            trackingWaitingTime: 5,
             startTrackerAutomatically: true
         ))
     }
@@ -201,8 +201,8 @@ if let idfa = WiseTrack.shared.getIDFA() {
 You can customize the SDK behavior through the `WTInitialConfig` parameters:
 - `appToken`: Your unique app token.
 - `storeName`: The app store (e.g., `.appstore`).
-- `environment`: The environment (`.production`, `.sandbox`).
-- `trackingWattingTime`: Delay before starting tracking (in seconds).
+- `environment`: The environment (`.production`, `.sandbox`, `.stage`).
+- `trackingWaitingTime`: Delay before starting tracking (in seconds).
 - `startTrackerAutomatically`: Whether to start tracking automatically.
 
 ## Example Project

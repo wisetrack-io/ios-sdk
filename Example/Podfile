@@ -2,6 +2,17 @@ use_frameworks!
 
 platform :ios, '11.0'
 
+source 'https://github.com/CocoaPods/Specs.git'
+
 target 'WiseTrackLib_Example' do
-  pod 'WiseTrackLib'
+  pod 'WiseTrackLib', :path => '../', :testspecs => ['UITests', 'UnitTests']
+  
+#  pod 'Sentry', '~> 8.50.2'
+
+  target 'WiseTrackLib_Tests' do
+    inherit! :search_paths
+    
+#    pod 'Quick', '~> 2.2.0'
+#    pod 'Nimble', '~> 10.0.0'
+  end
 end
