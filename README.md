@@ -7,6 +7,7 @@ The WiseTrack SDK is a powerful analytics tool for tracking user interactions, e
 - [Installation](#installation)
 - [Initialization](#initialization)
 - [Basic Usage](#basic-usage)
+  - [WebView Integration](#webview-integration)
   - [Enabling/Disabling the SDK](#enablingdisabling-the-sdk)
   - [Requesting App Tracking Transparency (ATT) Authorization](#requesting-app-tracking-transparency-att-authorization)
   - [Starting/Stopping Tracking](#startingstopping-tracking)
@@ -116,6 +117,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 ## Basic Usage
 Below are common tasks you can perform with the WiseTrack SDK.
+
+### WebView Integration
+If you using webview in your app, you can use `WiseTrackWebBridge` to enabling two-way communication between a WebView and the WiseTrack tracking system.Just call following code to register and enable webview bridge:
+```swift
+WiseTrackWebBridge.shared.register(webView)
+```
 
 ### Enabling/Disabling the SDK
 You can enable or disable the SDK at runtime.
