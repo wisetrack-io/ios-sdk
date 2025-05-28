@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ResourceWrapper.setSdkEnvironment(env: "stage")
         let config = WTInitialConfig(
             appToken: "rMN5ZCwpOzY7",
-            storeName: .appstore,
+            storeName: .other,
 //            storeName: .custom("asghar_store"),
             environment: .sandbox,
             logLevel: .debug,
@@ -42,15 +42,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             appSecret: "app-secret",
             secretId: "secret-id"
         )
-        WiseTrack.shared.initialize(with: config)
+//        WiseTrack.shared.initialize(with: config)
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = LoginViewController()
+        window!.rootViewController = WebViewController()
 //        window!.makeKeyAndVisible()
         
 //        WiseTrack.shared.setupHeatMap(window: &window!)
         
-        WiseTrack.shared.setupHeatMapTouchs()
+//        WiseTrack.shared.setupHeatMapTouchs()
         
         
 //        SentrySDK.start { options in

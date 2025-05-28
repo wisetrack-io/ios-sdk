@@ -16,6 +16,11 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		F1B4FD2D2DE764C800E5FFC8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B4FD282DE764C800E5FFC8 /* WebViewController.swift */; };
+		F1B4FD2E2DE764C800E5FFC8 /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = F1B4FD272DE764C800E5FFC8 /* test.html */; };
+		F1B4FD2F2DE764C800E5FFC8 /* wisetrack.js in Resources */ = {isa = PBXBuildFile; fileRef = F1B4FD292DE764C800E5FFC8 /* wisetrack.js */; };
+		F1B4FD302DE764C800E5FFC8 /* wt_config.js in Resources */ = {isa = PBXBuildFile; fileRef = F1B4FD2A2DE764C800E5FFC8 /* wt_config.js */; };
+		F1B4FD312DE764C800E5FFC8 /* wt_event.js in Resources */ = {isa = PBXBuildFile; fileRef = F1B4FD2B2DE764C800E5FFC8 /* wt_event.js */; };
 		F1EA1E832D6F0CFC00F7E8A4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA1E822D6F0CF000F7E8A4 /* LoginViewController.swift */; };
 		F1EA1E852D6F0D0A00F7E8A4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA1E842D6F0D0500F7E8A4 /* HomeViewController.swift */; };
 		F1F214112D451FA000916035 /* ApiResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F214102D451F9E00916035 /* ApiResponses.swift */; };
@@ -51,6 +56,11 @@
 		C36614A62E91FEE3353DAD04 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		CE68235E54BE67A9EEABABE0 /* Pods_WiseTrackLib_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WiseTrackLib_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F15B0999F4D9F1F46282E593 /* Pods-WiseTrackLib_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WiseTrackLib_Example.debug.xcconfig"; path = "Target Support Files/Pods-WiseTrackLib_Example/Pods-WiseTrackLib_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		F1B4FD272DE764C800E5FFC8 /* test.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
+		F1B4FD282DE764C800E5FFC8 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		F1B4FD292DE764C800E5FFC8 /* wisetrack.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = wisetrack.js; sourceTree = "<group>"; };
+		F1B4FD2A2DE764C800E5FFC8 /* wt_config.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = wt_config.js; sourceTree = "<group>"; };
+		F1B4FD2B2DE764C800E5FFC8 /* wt_event.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = wt_event.js; sourceTree = "<group>"; };
 		F1E6E6322D579D7000DA3DA4 /* WiseTrackLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WiseTrackLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E6E6362D579DCD00DA3DA4 /* Pods_WiseTrackLib_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_WiseTrackLib_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E6E6492D57ACE100DA3DA4 /* WiseTrackLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WiseTrackLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +115,7 @@
 		607FACD21AFB9204008FA782 /* Example for WiseTrackLib */ = {
 			isa = PBXGroup;
 			children = (
+				F1B4FD2C2DE764C800E5FFC8 /* WebView */,
 				F1EA1E842D6F0D0500F7E8A4 /* HomeViewController.swift */,
 				F1EA1E822D6F0CF000F7E8A4 /* LoginViewController.swift */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
@@ -163,6 +174,18 @@
 				8BDD7017911E667C6A669311 /* Pods-WiseTrackLib_Tests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F1B4FD2C2DE764C800E5FFC8 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				F1B4FD272DE764C800E5FFC8 /* test.html */,
+				F1B4FD282DE764C800E5FFC8 /* WebViewController.swift */,
+				F1B4FD292DE764C800E5FFC8 /* wisetrack.js */,
+				F1B4FD2A2DE764C800E5FFC8 /* wt_config.js */,
+				F1B4FD2B2DE764C800E5FFC8 /* wt_event.js */,
+			);
+			path = WebView;
 			sourceTree = "<group>";
 		};
 		FEB7381A3F8C870B78ADF7AC /* Frameworks */ = {
@@ -267,6 +290,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				F1B4FD2E2DE764C800E5FFC8 /* test.html in Resources */,
+				F1B4FD2F2DE764C800E5FFC8 /* wisetrack.js in Resources */,
+				F1B4FD302DE764C800E5FFC8 /* wt_config.js in Resources */,
+				F1B4FD312DE764C800E5FFC8 /* wt_event.js in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
@@ -356,6 +383,7 @@
 				F1EA1E832D6F0CFC00F7E8A4 /* LoginViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				F1B4FD2D2DE764C800E5FFC8 /* WebViewController.swift in Sources */,
 				F1EA1E852D6F0D0A00F7E8A4 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

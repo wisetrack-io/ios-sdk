@@ -3,10 +3,21 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "WTTracker.createAttribution(attempt:):WTTracker.swift">
+         contextName = "UploadRequest.task(for:using:):UploadRequest.swift">
          <PersistentStrings>
             <PersistentString
-               value = "isRunning">
+               value = "String(data: data, encoding: .utf8)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WebViewController.userContentController(_:didReceive:):WebViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "message.name">
+            </PersistentString>
+            <PersistentString
+               value = "message.body">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -33,13 +44,13 @@
          contextName = "WTSdkFields.build(completion:):SdkFields.swift">
          <PersistentStrings>
             <PersistentString
+               value = "storage.config">
+            </PersistentString>
+            <PersistentString
                value = "storage.extraConfig">
             </PersistentString>
             <PersistentString
                value = "storage.initialConfig">
-            </PersistentString>
-            <PersistentString
-               value = "storage.config">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -66,6 +77,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "WiseTrack.isEnabled.getter:WiseTrack.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "storage.sdkEnabled">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in WTNetworkManager.sendRequest&lt;WiseTrackLib.ResponseWrapper&gt;(endpoint:method:parameters:formData:attempt:completion:):NetworkManager.swift">
          <PersistentStrings>
             <PersistentString
@@ -81,6 +100,14 @@
       </ContextState>
       <ContextState
          contextName = "WTSdkFields.localFields():SdkFields.swift">
+      </ContextState>
+      <ContextState
+         contextName = "WiseTrackWebBridge.userContentController(_:didReceive:):WiseTrackWebBridge.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "eventDict[&quot;type&quot;]">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "WTEventsTests.test2CreateCustomEventWithParams():WTEventsTests.swift">
@@ -108,10 +135,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "UploadRequest.task(for:using:):UploadRequest.swift">
+         contextName = "WTTracker.createAttribution(attempt:):WTTracker.swift">
          <PersistentStrings>
             <PersistentString
-               value = "String(data: data, encoding: .utf8)">
+               value = "isRunning">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
