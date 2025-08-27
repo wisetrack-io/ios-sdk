@@ -1,158 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>WiseTrack JS SDK Tester</title>
-    <style>
-        body { font-family: sans-serif; padding: 20px; }
-        button { margin: 5px 0; padding: 8px 16px; }
-        pre { background: #f1f1f1; padding: 10px; border-radius: 6px; }
-    </style>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <title>WiseTrack JS SDK Tester</title>
+        <style>
+            body { font-family: sans-serif; padding: 20px; }
+            button { margin: 5px 0; padding: 8px 16px; }
+            pre { background: #f1f1f1; padding: 10px; border-radius: 6px; }
+        </style>
+    </head>
 
-<h1>WiseTrack JS SDK Test</h1>
+    <body>
 
-<button onclick="init()">Initialize</button>
-<br>
-<button onclick="logDefaultEvent()">Log Default Event</button>
-<br>
-<button onclick="logRevenueEvent()">Log Revenue Event</button>
-<br>
-<button onclick="setEnabled(true)">Enable SDK</button>
-<br>
-<button onclick="setEnabled(false)">Disable SDK</button>
-<br>
-<button onclick="requestForATT()">Request For ATT</button>
-<br>
-<button onclick="getADID()">Get ADID</button>
-<br>
-<button onclick="getIDFA()">Get IDFA</button>
-<br>
-<button onclick="getReferrer()">Get Referrer</button>
-<br>
-<button onclick="startTracking()">Start Tracking</button>
-<br>
-<button onclick="stopTracking()">Stop Tracking</button>
-<br>
-<button onclick="clearDataAndStop()">Clear Data and Stop</button>
-<br>
-<button onclick="destroy()">Destroy</button>
-<br>
-<button onclick="setPackagesInfo()">Set Packages Info</button>
-<br>
-<button onclick="setFCMToken()">Set FCM Token</button>
-<br>
-<button onclick="setAPNSToken()">Set APNS Token</button>
-<br>
-<button onclick="isEnabled()">Is Enabled</button>
-<br>
+        <h1>WiseTrack JS SDK Test</h1>
 
-<h3>Logs</h3>
-<pre id="logs"></pre>
+        <button onclick="init()">Initialize</button>
+        <br>
+        <button onclick="setLogLevel('DEBUG')">Set DEBUG LogLevel</button>
+        <br>
+        <button onclick="setLogLevel('WARNING')">Set WARNING LogLevel</button>
+        <br>
+        <button onclick="logDefaultEvent()">Log Default Event</button>
+        <br>
+        <button onclick="logRevenueEvent()">Log Revenue Event</button>
+        <br>
+        <button onclick="setEnabled(true)">Enable SDK</button>
+        <br>
+        <button onclick="setEnabled(false)">Disable SDK</button>
+        <br>
+        <button onclick="requestForATT()">Request For ATT</button>
+        <br>
+        <button onclick="getADID()">Get ADID</button>
+        <br>
+        <button onclick="getIDFA()">Get IDFA</button>
+        <br>
+        <button onclick="getReferrer()">Get Referrer</button>
+        <br>
+        <button onclick="startTracking()">Start Tracking</button>
+        <br>
+        <button onclick="stopTracking()">Stop Tracking</button>
+        <br>
+        <button onclick="clearDataAndStop()">Clear Data and Stop</button>
+        <br>
+        <button onclick="destroy()">Destroy</button>
+        <br>
+        <button onclick="setPackagesInfo()">Set Packages Info</button>
+        <br>
+        <button onclick="setFCMToken()">Set FCM Token</button>
+        <br>
+        <button onclick="setAPNSToken()">Set APNS Token</button>
+        <br>
+        <button onclick="isEnabled()">Is Enabled</button>
+        <br>
 
-<!-- Include your JS SDK -->
-<script src="wisetrack.js"></script>
-<script src="wt_config.js"></script>
-<script src="wt_event.js"></script>
+        <h3>Logs</h3>
+        <pre id="logs"></pre>
 
-<script>
-    const logs = document.getElementById('logs');
-    function log(msg) {
-        console.log(msg);
-        logs.textContent += msg + '\n';
-    }
+        <!-- Include your JS SDK -->
+        <script src="wisetrack.js"></script>
+        <script src="wt_config.js"></script>
+        <script src="wt_event.js"></script>
 
-    function init() {
-        try {
-            const config = new WTInitConfig("rMN5ZCwpOzY7");
-            config.setUserEnvironment("production");
-            config.setLogLevel("DEBUG");
-            WiseTrack.initialize(config);
-            log('Initialized');
-        }catch (e) {
-            console.log('[WiseTrack]: initialize failed:', e.message);
-        }
-    }
+        <script>
+            const logs = document.getElementById('logs');
+            function log(msg) {
+                console.log(msg);
+                logs.textContent += msg + '\n';
+            }
 
-    function logDefaultEvent() {
-        const event = WTEvent.defaultEvent("default_event");
-        event.addParam("screen", "home");
-        WiseTrack.logEvent(event);
-        log('Default event logged');
-    }
+            function init() {
+                try {
+                    const config = new WTInitConfig("rMN5ZCwpOzY7");
+                    config.setUserEnvironment("production");
+                    config.setLogLevel("DEBUG");
+                    WiseTrack.initialize(config);
+                    log('Initialized');
+                } catch (e) {
+                    console.log('[WiseTrack]: initialize failed:', e.message);
+                }
+            }
 
-    function logRevenueEvent() {
-        const event = WTEvent.revenueEvent("revenue_event", 12.5, RevenueCurrency.USD);
-        event.addParam("screen", "home");
-        WiseTrack.logEvent(event);
-        log('Revenue event logged');
-    }
+            function setLogLevel(level){
+               try {
+                    WiseTrack.setLogLevel(level);
+                    log('Log level set to ${level}');
+                } catch (e) {
+                    console.log('[WiseTrack]: set log level failed:', e.message);
+                }
+            }
 
-    function setEnabled(value) {
-        WiseTrack.setEnabled(value);
-        log('Set Enabled: ' + value);
-    }
+            function logDefaultEvent() {
+                const event = WTEvent.defaultEvent("default_event");
+                event.addParam("param-1", "home");
+                event.addParam("param-2", 2.3);
+                event.addParam("param-3", true);
+                WiseTrack.logEvent(event);
+                log('Default event logged');
+            }
 
-    function requestForATT() {
-        WiseTrack.requestForATT().then((isAuthorized) => {
-            log('Is Authorized: ' + isAuthorized);
-        });
-    }
+            function logRevenueEvent() {
+                const event = WTEvent.revenueEvent("revenue_event", 12.5, RevenueCurrency.USD);
+                event.addParam("param-1", "home");
+                event.addParam("param-2", 1.3);
+                event.addParam("param-3", true);
+                WiseTrack.logEvent(event);
+                log('Revenue event logged');
+            }
 
-    function getADID() {
-        const adid = WiseTrack.getADID();
-        log('ADID: ' + adid);
-    }
+            function setEnabled(value) {
+                WiseTrack.setEnabled(value);
+                log('Set Enabled: ' + value);
+            }
 
-    function getIDFA() {
-        WiseTrack.getIDFA().then((idfa) => {
-            log('IDFA: ' + idfa);
-        });
-    }
+            function requestForATT() {
+                WiseTrack.requestForATT().then((isAuthorized) => {
+                    log('Is Authorized: ' + isAuthorized);
+                });
+            }
 
-    function getReferrer() {
-        const referrer = WiseTrack.getReferrer();
-        log('Referrer: ' + referrer);
-    }
+            function getADID() {
+                WiseTrack.getADID().then((adid) => {
+                    log('ADID: ' + adid);
+                });
+            }
 
-    function startTracking() {
-        WiseTrack.startTracking();
-        log('Tracking started');
-    }
+            function getIDFA() {
+                WiseTrack.getIDFA().then((idfa) => {
+                    log('IDFA: ' + idfa);
+                });
+            }
 
-    function stopTracking() {
-        WiseTrack.stopTracking();
-        log('Tracking stopped');
-    }
+            function getReferrer() {
+                WiseTrack.getReferrer().then((referrer) => {
+                    log('Referrer: ' + referrer);
+                });
+            }
 
-    function clearDataAndStop() {
-        WiseTrack.clearDataAndStop();
-        log('Cleared data and stopped');
-    }
+            function startTracking() {
+                WiseTrack.startTracking();
+                log('Tracking started');
+            }
 
-    function destroy() {
-        WiseTrack.destroy();
-        log('Destroyed instance');
-    }
+            function stopTracking() {
+                WiseTrack.stopTracking();
+                log('Tracking stopped');
+            }
 
-    function setFCMToken() {
-        WiseTrack.setFCMToken("SAMPLE_FCM_TOKEN_ABC123");
-        log('FCM token set');
-    }
+            function clearDataAndStop() {
+                WiseTrack.clearDataAndStop();
+                log('Cleared data and stopped');
+            }
 
-    function setAPNSToken() {
-        WiseTrack.setAPNSToken("SAMPLE_APNS_TOKEN_ABC123");
-        log('APNS token set');
-    }
+            function destroy() {
+                WiseTrack.destroy();
+                log('Destroyed instance');
+            }
 
-    function isEnabled() {
-        WiseTrack.isEnabled().then((enabled) => {
-            log('Is Enabled: ' + enabled);
-        });
-    }
-</script>
+            function setPackagesInfo() {
+                WiseTrack.setPackagesInfo();
+                log('Packages Info set')
+            }
 
-</body>
+            function setFCMToken() {
+                WiseTrack.setFCMToken("SAMPLE_FCM_TOKEN_ABC123");
+                log('FCM token set');
+            }
+
+            function setAPNSToken() {
+                WiseTrack.setAPNSToken("SAMPLE_APNS_TOKEN_ABC123");
+                log('APNS token set');
+            }
+
+            function isEnabled() {
+                WiseTrack.isEnabled().then((enabled) => {
+                    log('Is Enabled: ' + enabled);
+                });
+            }
+        </script>
+
+    </body>
+
 </html>

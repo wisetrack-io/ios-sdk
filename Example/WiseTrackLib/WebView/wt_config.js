@@ -11,8 +11,8 @@ const WTLogLevel = Object.freeze({
   ERROR: 'ERROR'
 });
 
-// StoreName Enum + Helpers
-const WTStoreName = {
+// Android StoreName Enum
+const WTAndroidStoreName = {
   PLAYSTORE: Object.freeze({ value: 'playstore' }),
   CAFEBAZAAR: Object.freeze({ value: 'cafebazaar' }),
   MYKET: Object.freeze({ value: 'myket' }),
@@ -38,6 +38,39 @@ const WTStoreName = {
   }
 };
 
+// iOS StoreName Enum
+const WTIOSStoreName = {
+  APPSTORE: Object.freeze({ value: 'appstore' }),
+  SIBCHE: Object.freeze({ value: 'sibche' }),
+  SIBAPP: Object.freeze({ value: 'sibapp' }),
+  ANARDONI: Object.freeze({ value: 'anardoni' }),
+  SIBIRANI: Object.freeze({ value: 'sibirani' }),
+  SIBJO: Object.freeze({ value: 'sibjo' }),
+  OTHER: Object.freeze({ value: 'other' }),
+
+  Custom(name) {
+    if (typeof name !== 'string' || !name.trim()) {
+      throw new Error('[WiseTrack]: Custom store name must be a non-empty string');
+    }
+    return Object.freeze({ value: name.trim() });
+  },
+
+  fromString(value) {
+    if (typeof value !== 'string') value = String(value);
+
+    switch (value.toLowerCase()) {
+      case 'appstore': return this.APPSTORE;
+      case 'sibche': return this.SIBCHE;
+      case 'sibapp': return this.SIBAPP;
+      case 'anardoni': return this.ANARDONI;
+      case 'sibirani': return this.SIBIRANI;
+      case 'sibjo': return this.SIBJO;
+      case 'other': return this.OTHER;
+      default: return this.Custom(value);
+    }
+  }
+};
+
 // Config Class
 class WTInitConfig {
   constructor(appToken) {
@@ -46,7 +79,8 @@ class WTInitConfig {
     }
 
     this.appToken = appToken;
-    this.storeName = WTStoreName.OTHER;
+    this.androidStoreName = WTAndroidStoreName.OTHER;
+    this.iOSStoreName = WTIOSStoreName.OTHER;
     this.userEnvironment = WTUserEnvironment.PRODUCTION;
     this.trackingWaitingTime = 0;
     this.startTrackerAutomatically = true;
@@ -68,11 +102,20 @@ class WTInitConfig {
     return this;
   }
 
-  setStoreName(store) {
-    if (Object.values(WTStoreName).includes(storeName)) {
-      this.storeName = store;
+  setAndroidStoreName(store) {
+    if (Object.values(WTAndroidStoreName).includes(storeName)) {
+      this.androidStoreName = store;
     } else {
-      this.storeName = WTStoreName.Custom(store)
+      this.androidStoreName = WTAndroidStoreName.Custom(store)
+    }
+    return this;
+  }
+
+  setIOSStoreName(store) {
+    if (Object.values(WTIOSStoreName).includes(storeName)) {
+      this.iOSStoreName = store;
+    } else {
+      this.iOSStoreName = WTIOSStoreName.Custom(store)
     }
     return this;
   }
@@ -158,7 +201,8 @@ class WTInitConfig {
     return {
       app_token: this.appToken,
       user_environment: this.userEnvironment,
-      store_name: this.storeName.value,
+      android_store_name: this.androidStoreName.value,
+      ios_store_name: this.iOSStoreName.value,
       tracking_waiting_time: this.trackingWaitingTime,
       start_tracker_automatically: this.startTrackerAutomatically,
       oaid_enabled: this.oaidEnabled,

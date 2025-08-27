@@ -97,5 +97,3 @@ class WTEvent {
         return event;
     }
 }
-
-

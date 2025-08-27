@@ -211,7 +211,7 @@ Set APNs or FCM tokens for push notifications:
    ```swift
     func application(_ application: UIApplication,
                      didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        WiseTrack.shared.setAPNSToken(token: deviceToken)
+        WiseTrack.shared.setAPNSToken(tokenData: deviceToken)
     }
    ```
 
