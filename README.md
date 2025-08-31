@@ -280,6 +280,8 @@ WiseTrack.shared.logEvent(WTEvent.revenue(for: "Purchase", currency: .USD, amoun
 ]))
 ```
 
+**Note:** Event parameter keys and values have a maximum limit of 50 characters.
+
 ### Setting Log Levels
 
 Control the verbosity of SDK logs:

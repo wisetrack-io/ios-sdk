@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         WiseTrack.shared.initialize(with: config)
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = HomeViewController()
+        window!.rootViewController = ViewController()
         return true
     }
     
