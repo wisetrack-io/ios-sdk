@@ -5,6 +5,9 @@
 
 .DS_Store
 Lib/.DS_Store
+Example/.DS_Store
+WiseTrackLib.xcframework
+WiseTrackLib.xcframework.zip
 
 # =========================
 # Xcode & macOS
