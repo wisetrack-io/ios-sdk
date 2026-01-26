@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary          = 'WiseTrack tracking SDK for iOS'
   s.description      = 'WiseTrack provides advanced user tracking features for iOS apps.'
   s.homepage         = 'https://wisetrack.io'
-  s.license          = { :type => 'Commercial', :file => 'LICENSE' }
+  s.license          = { :type => 'Commercial', :text => 'Copyright (c) 2024 WiseTrack. All rights reserved.' }
   s.author           = { 'Mostafa Movahhed' => 'thisismovahhed@gmail.com' }
   s.source           = { :http => 'https://github.com/wisetrack-io/ios-sdk/releases/download/2.3.0-alpha/WiseTrackLib.xcframework.zip'}
   s.frameworks       = 'Foundation', 'UIKit'
